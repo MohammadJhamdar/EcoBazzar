@@ -15,7 +15,7 @@ namespace EcoBazzar.Services.UserServices
             _context = dbcontext;
         }
 
-        public async Task<User> AuthenticateUser(string username, string password)
+        /*public async Task<User> AuthenticateUser(string username, string password)
         {
             var user = await _context.users.SingleOrDefaultAsync(u => u.UserName == username);
             if (user != null && VerifyPassword(user.Password, password))
@@ -24,7 +24,16 @@ namespace EcoBazzar.Services.UserServices
             }
             return null;
         }
-
+*/
+        public async Task<User> AuthenticateUser(string username, string password)
+        {
+            var user = await _context.users.SingleOrDefaultAsync(u => u.UserName == username && u.Password==password);
+            if (user != null)
+            {
+                return user;
+            }
+            return null;
+        }
         public async Task<int> CreateUSer(UserBindingModel bindingModel)
         {
             User user=new User();
