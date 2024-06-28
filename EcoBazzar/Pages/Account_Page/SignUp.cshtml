@@ -19,14 +19,18 @@
             margin-bottom: 1.5rem;
         }
 
-        .position-relative .fa-eye,
-        .position-relative .fa-eye-slash {
-            position: absolute;
-            top: 70%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
+        .position-relative {
+            position: relative;
         }
+
+            .position-relative .fa-eye,
+            .position-relative .fa-eye-slash {
+                position: absolute;
+                top: 70%;
+                right: 10px;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
 
         .card-title {
             background: linear-gradient(45deg, #007bff, #0056b3);
@@ -45,36 +49,36 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group form-group-spacing">
                     <label for="Username">Username</label>
-                    <input type="text" class="form-control" id="Username" name="Username" placeholder="Enter your username" required />
+                    <input asp-for="user.Name" class="form-control" id="Username" name="Username" placeholder="Enter your username" />
+                    <span asp-validation-for="user.Name" data-valmsg-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group form-group-spacing">
                     <label for="Email">Email</label>
-                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter your email" required />
+                    <input asp-for="user.Email" class="form-control" id="Email" name="Email" placeholder="Enter your email" />
+                    <span asp-validation-for="user.Email" data-valmsg-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group form-group-spacing position-relative">
                     <label for="Password">Password</label>
-                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter your password" required />
+                    <input asp-for="user.Password" class="form-control" id="Password" name="Password" placeholder="Enter your password" />
                     <span class="fa fa-eye" id="togglePassword" onclick="togglePasswordVisibility('Password', 'togglePassword')"></span>
+                    <span asp-validation-for="user.Password" data-valmsg-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group form-group-spacing position-relative">
                     <label for="ConfirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm your password" required />
+                    <input asp-for="user.ConfirmPassword" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm your password" />
                     <span class="fa fa-eye" id="toggleConfirmPassword" onclick="togglePasswordVisibility('ConfirmPassword', 'toggleConfirmPassword')"></span>
+                    <span asp-validation-for="user.ConfirmPassword" data-valmsg-for="ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-group form-group-spacing">
                     <label>Gender</label><br />
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="Gender" id="Male" value="Male" required />
-                        <label class="form-check-label" for="Male">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="Gender" id="Female" value="Female" required />
-                        <label class="form-check-label" for="Female">Female</label>
-                    </div>
+                    <input type="radio" asp-for="user.Gender" value="Male" name="Sex" /> Male
+                    <input type="radio" asp-for="user.Gender" value="Female" name="Sex" /> Female
+                    <span asp-validation-for="user.Gender" class="text-danger" data-valmsg-for="Sex"></span>
                 </div>
                 <div class="form-group form-group-spacing">
                     <label for="PhoneNumber">Phone Number</label>
-                    <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter your phone number" required />
+                    <input asp-for="user.Phone" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter your phone number" />
+                    <span asp-validation-for="user.Phone" data-valmsg-for="Phone" class="text-danger"></span>
                 </div>
                 <div class="form-group form-group-spacing">
                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
@@ -101,3 +105,6 @@
         }
     }
 </script>
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+}
