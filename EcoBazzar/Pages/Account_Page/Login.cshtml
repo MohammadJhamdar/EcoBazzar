@@ -3,6 +3,40 @@
 @{
     ViewData["Title"] = "User Entry";
 }
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .custom-link {
+            text-decoration: none;
+            color: #007bff; /* Bootstrap primary color */
+        }
+
+            .custom-link:hover {
+                color: #0056b3; /* Darker shade for hover effect */
+            }
+
+        .form-group-spacing {
+            margin-bottom: 1.5rem;
+        }
+
+        .position-relative .fa-eye,
+        .position-relative .fa-eye-slash {
+            position: absolute;
+            top: 70%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .card-title {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
 <div class="container mt-5 d-flex justify-content-center">
     <div class="card shadow-sm" style="width: 25rem;">
         <div class="card-body">
@@ -12,15 +46,21 @@
                     <label for="Username">Username</label>
                     <input type="text" class="form-control" id="Username" name="Username" placeholder="Enter your email" required />
                 </div>
-                <div class="form-group form-group-spacing">
+                <div class="form-group form-group-spacing position-relative">
                     <label for="Password">Password</label>
                     <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter your password" required />
+                    <span class="fa fa-eye" id="togglePassword" onclick="togglePasswordVisibility('Password', 'togglePassword')"></span>
                 </div>
                 <div class="form-group form-group-spacing">
                     <a asp-page="ForgotPassword" class="custom-link">Forgot password?</a>
                 </div>
                 <div class="form-group form-group-spacing">
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+                <div class="form-group form-group-spacing">
+                    <button type="button" class="btn btn-outline-primary btn-block">
+                        <i class="fab fa-facebook-f"></i> Login with Facebook
+                    </button>
                 </div>
                 <div class="form-group mt-3 text-center">
                     <p>Don't have an account? <a asp-page="SignUp" class="custom-link">Register here</a></p>
@@ -29,3 +69,18 @@
         </div>
     </div>
 </div>
+<script>
+    function togglePasswordVisibility(inputId, toggleId) {
+        const input = document.getElementById(inputId);
+        const toggle = document.getElementById(toggleId);
+        if (input.type === "password") {
+            input.type = "text";
+            toggle.classList.remove("fa-eye");
+            toggle.classList.add("fa-eye-slash");
+        } else {
+            input.type = "password";
+            toggle.classList.remove("fa-eye-slash");
+            toggle.classList.add("fa-eye");
+        }
+    }
+</script>
