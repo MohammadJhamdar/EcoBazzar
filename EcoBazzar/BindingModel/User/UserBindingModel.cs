@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EcoBazzar.BindingModel
+namespace EcoBazzar.BindingModel.User
 {
     public class UserBindingModel
     {

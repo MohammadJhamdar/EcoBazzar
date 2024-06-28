@@ -1,4 +1,4 @@
-﻿using EcoBazzar.BindingModel;
+﻿using EcoBazzar.BindingModel.User;
 using EcoBazzar.DataModel;
 
 namespace EcoBazzar.Services.UserServices
@@ -10,6 +10,7 @@ namespace EcoBazzar.Services.UserServices
         public Task<User> GetUser(int id);
         public Task<List <User> > GetAllUsers();
         public Task<User> AuthenticateUser(string username, string password);
+        public Task<bool> GetUserByUsername(string username);
 
     }
 }

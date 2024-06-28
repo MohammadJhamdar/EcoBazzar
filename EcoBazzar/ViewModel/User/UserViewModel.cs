@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EcoBazzar.ViewModel
+namespace EcoBazzar.ViewModel.User
 {
     public class UserViewModel
     {

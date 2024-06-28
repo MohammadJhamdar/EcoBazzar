@@ -1,4 +1,4 @@
-using EcoBazzar.BindingModel;
+using EcoBazzar.BindingModel.User;
 using EcoBazzar.DataBase;
 using EcoBazzar.Services.UserServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
