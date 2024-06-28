@@ -16,14 +16,17 @@ namespace EcoBazzar.ViewModel
         public string Email { get; set; }
 
         [Required]
-        [EmailAddress]
-        public string UserName { get; set; }
-
-        [Required]
         [DataType(DataType.Password)]
         [MinLength(8)]
         [MaxLength(16)]
         public string Password { get; set; }
+
+        [Required]
+        [Compare("Password", ErrorMessage = "Password and confirmation password do not match.")]
+        [DataType(DataType.Password)]
+        [MinLength(8)]
+        [MaxLength(16)]
+        public string ConfirmPassword { get; set; }
 
         [Required]
         [MaxLength(6)]
