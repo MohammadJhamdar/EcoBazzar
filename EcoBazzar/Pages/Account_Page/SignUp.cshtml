@@ -86,6 +86,8 @@
                     <input asp-for="user.Phone" class="form-control" id="PhoneNumber" name="Phone" placeholder="Enter your phone number" />
                     <span asp-validation-for="user.Phone" data-valmsg-for="Phone" class="text-danger"></span>
                 </div>
+                <input type="hidden" name="Role" value="user" />
+
                
                 <div class="form-group form-group-spacing">
                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>

@@ -17,17 +17,21 @@ namespace EcoBazzar.Pages.Account_Page
         [BindProperty]
         public UserBindingModel binding { get; set; }
 
+        public string Role { get; set; }
+
         public void OnGet()
         {
         }
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            return RedirectToPage("../");
+            //binding.Role = "user";
+            await _userServices.CreateUSer(binding);
+            return RedirectToPage("../Index");
         }
     }
 }
