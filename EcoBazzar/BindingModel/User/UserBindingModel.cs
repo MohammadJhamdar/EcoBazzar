@@ -8,12 +8,18 @@ namespace EcoBazzar.BindingModel.User
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Required]
+        
         public string Role { get; set; }
+
+
 
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        [EmailAddress]
+
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

@@ -1,6 +1,6 @@
-using EcoBazzar.BindingModel;
+using EcoBazzar.BindingModel.User;
 using EcoBazzar.Services.UserServices;
-using EcoBazzar.ViewModel;
+using EcoBazzar.ViewModel.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -22,11 +22,12 @@ namespace EcoBazzar.Pages.Account_Page
         }
         public IActionResult OnPost()
         {
+            
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            return RedirectToPage("/");
+            return RedirectToPage("../");
         }
     }
 }

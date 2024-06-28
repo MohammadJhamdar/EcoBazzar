@@ -77,7 +77,7 @@ namespace EcoBazzar.Services.UserServices
             user.Name= bindingModel.Name;
             user.Email= bindingModel.Email;
             user.Password= HashPassword(bindingModel.Password);
-            user.UserName= bindingModel.Name;
+            user.UserName= bindingModel.UserName;
             user.Phone= bindingModel.Phone;
             user.Gender= bindingModel.Gender;
             user.Role= bindingModel.Role;
