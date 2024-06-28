@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+.custom-link {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+    .custom-link:hover {
+        color: #0056b3; /* Darker shade for hover effect */
+    }
+
+.form-group-spacing {
+    margin-bottom: 1.5rem;
+}

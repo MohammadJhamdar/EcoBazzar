@@ -1,4 +1,4 @@
-using EcoBazzar.BindingModel;
+using EcoBazzar.BindingModel.User;
 using EcoBazzar.DataBase;
 using EcoBazzar.Services.UserServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -55,7 +55,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseStatusCodePagesWithReExecute("/Error");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
