@@ -83,13 +83,13 @@ namespace EcoBazzar.Services.CategoryServices
             if (bindinModel.Image != null)
             {
                 var uniqueFileName = GetUniqueFileName(bindinModel.Image.FileName);
-                var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Category");
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     bindinModel.Image.CopyTo(stream);
                 }
-                category.Image = "/images/" + uniqueFileName;
+                category.Image = "/Category/" + uniqueFileName;
             }
             
         }
