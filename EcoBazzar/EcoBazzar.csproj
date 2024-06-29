@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Products\" />
+    <Folder Include="wwwroot\SubCategory\" />
+  </ItemGroup>
+
 </Project>
