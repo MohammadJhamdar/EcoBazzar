@@ -11,13 +11,12 @@
         public double Rating { get; set; }
         public double Weight { get; set; }
         public int Stock { get; set; }
-        public double Discount { get; set; }
+        public double? Discount { get; set; }
         public DateTime DateAdded { get; set; }
         public DateTime? DateModified { get; set; }
         public SubCategory SubCategory { get; set; }
         public int SubCategoryId { get; set; }
-        public Category Category { get; set; }
-        public int CategoryId { get; set; }
+        
 
     }
 }
