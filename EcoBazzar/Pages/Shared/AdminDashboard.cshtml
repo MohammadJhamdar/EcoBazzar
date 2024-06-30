@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Add custom styles here */
+        .admin-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Style for "Welcome Admin" text */
+        .welcome-text {
+            text-align: center; /* Center horizontally */
+            margin-top: 20px; /* Adjust top margin for vertical centering */
+            font-family: sans-serif; /* Replace with your chosen font */
+            font-size: 24px; /* Adjust font size */
+            color: #007bff; /* Blue color for the text */
+        }
+
+        /* Style for logo (adjust as needed) */
+        .logo {
+            max-width: 100px; /* Adjust the width as needed */
+            border-radius: 5px; /* Add rounded edges */
+        }
+
+        /* Style for "Name" and "Founder" text */
+        .user-name {
+            font-size: 18px;
+            color: black;
+        }
+
+        .founder {
+            font-size: 14px;
+            color: gray;
+        }
+
+        /* Proper spacing between icons */
+        .user-info a {
+            margin-right: 10px;
+            color: #6c757d; /* Grey color for icons */
+            font-size: 18px; /* Adjust icon size */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+            .user-info a:hover {
+                color: #007bff; /* Blue color on hover */
+            }
+
+        .admin-navbar {
+            background-color: #343a40; /* Dark blue or grey background */
+            color: #fff; /* White text */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure navbar is above other content */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow effect */
+            position: fixed; /* Fixed position to stick on scroll */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+        }
+
+        .admin-sidebar {
+            background-color: #343a40; /* Dark blue or grey background */
+            color: #fff; /* White text */
+            width: 250px; /* Adjust width as needed */
+            flex: 0 0 auto; /* Non-flexible, fixed height */
+            overflow-y: auto; /* Scrollable if content exceeds height */
+            z-index: 1050; /* Ensure sidebar is below navbar */
+            position: fixed; /* Fixed position to stick on scroll */
+            top: 0; /* Align to top */
+            bottom: 0; /* Align to bottom */
+            left: 0; /* Align to left */
+            transition: background-color 0.3s ease; /* Smooth transition for background color change */
+        }
+
+            .admin-sidebar .logo {
+                max-width: 150px; /* Adjust logo size */
+                margin: auto; /* Center the logo horizontally */
+                display: block; /* Ensure it's displayed as a block element */
+            }
+
+        .admin-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #fff; /* Dark blue or grey background */
+            z-index: 1000; /* Ensure footer is above other content */
+            position: fixed; /* Fixed position to stick on scroll */
+            bottom: 0; /* Align to bottom */
+            width: 100%; /* Full width */
+            color: #000; /* White text color */
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        .admin-header {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between; /* Align items to the sides */
+            align-items: center; /* Center vertically */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow effect */
+            position: relative; /* Relative positioning for absolute children */
+        }
+
+            .admin-header a i {
+                margin-left: 10px; /* Adjust as needed */
+            }
+
+
+            .admin-header .logo {
+                max-width: 150px; /* Adjust logo size */
+            }
+
+            .admin-header .user-info {
+                display: flex;
+                align-items: center;
+            }
+
+                .admin-header .user-info .user-name {
+                    margin-right: 10px; /* Space between name and icons */
+                }
+
+        .nav-link {
+            color: #6c757d; /* Grey text color */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+            .nav-link:hover {
+                color: #007bff; /* Blue text color on hover */
+            }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #222; /* Darker background color */
+            color: #fff; /* White text color */
+        }
+
+            .dark-mode .admin-navbar {
+                background-color: #343a40; /* Darker navbar background */
+            }
+
+            .dark-mode .admin-sidebar {
+                background-color: #343a40; /* Darker sidebar background */
+            }
+
+            .dark-mode .admin-footer {
+                background-color: #343a40; /* Darker footer background */
+            }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa; /* Light grey background */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow effect */
+            position: fixed; /* Fixed position to stick on scroll */
+            top: 0; /* Align to top */
+            left: 250px; /* Width of sidebar */
+            width: calc(100% - 250px); /* Adjusted width to accommodate sidebar */
+            z-index: 1000; /* Ensure navbar is above other content */
+        }
+
+            .admin-header a {
+                color: grey; /* Set text color to grey */
+                margin-left: 10px; /* Add left margin */
+            }
+
+        .admin-content {
+            margin-left: 250px; /* Offset content to match sidebar width */
+            padding-top: 60px; /* Adjusted top padding to clear navbar */
+            padding-left: 20px; /* Adjust padding as needed */
+            flex: 1 1 auto; /* Flexible height, fills remaining space */
+            overflow-y: auto; /* Scrollable content */
+            transition: margin-left 0.3s ease; /* Smooth transition for margin change */
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+
+        <!-- Admin Navbar -->
+        <nav class="admin-navbar">
+            <div class="admin-header">
+                <a asp-page="Index" class="text-black mr-3">
+                    <i class="fas fa-arrow-left"></i> Back <!-- Back button with left margin -->
+                </a>
+
+                <div class="user-info">
+                    @* <a href="#"><i class="fas fa-moon" id="darkModeToggle"></i></a> *@ <!-- Moon icon for dark mode toggle -->
+                    <a href="#"><i class="fas fa-bell"></i></a> <!-- Replace with notification icon -->
+                    <a href="#"><i class="fas fa-sign-out-alt"></i></a> <!-- Replace with logout icon -->
+                </div>
+            </div>
+        </nav>
+
+        <!-- Admin Sidebar -->
+        <div class="admin-sidebar">
+            <!-- Logo -->
+            <img src="~/Logo/logo.jpg" class="logo" alt="Logo">
+
+            <!-- Welcome Admin -->
+            <p class="welcome-text">Welcome Admin</p>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Customers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Managers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">View as User</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sales</a></li>
+            </ul>
+        </div>
+
+        <!-- Admin Content -->
+        <div class="admin-content">
+            @RenderBody() <!-- This renders the body of your specific Razor Page -->
+        </div>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            &copy; Copyright EcoBazzar
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome for icons (if used) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <!-- Custom JavaScript for dark mode toggle -->
+    <script>
+        $(document).ready(function () {
+            $('#darkModeToggle').click(function () {
+                $('body').toggleClass('dark-mode'); // Toggle dark mode class on body
+            });
+        });
+    </script>
+</body>
+</html>
