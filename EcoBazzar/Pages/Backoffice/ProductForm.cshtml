@@ -131,18 +131,14 @@
 
    
     <div class="form-group">
-        <label>With "No Selection" Option</label>
+        <label>SubCategory</label>
         <select class="form-control dropdown" asp-for="product.SubCategoryId" asp-items="Model.SubCategories"
                 name="Nationalty">
             <option value="">**Not selected**</option>
         </select>
         <span asp-validation-for="product.SubCategoryId" class="text-danger" data-valmsg-for="SubCategoryId"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="product.SubCategoryId"></label>
-        <input asp-for="product.SubCategoryId" class="form-control" name="SubCategoryId" />
-        <span asp-validation-for="product.SubCategoryId" data-valmsg-for="SubCategoryId" class="text-danger"></span>
-    </div>
+   
 
 
     <button type="submit" class="btn btn-primary">Submit</button>
