@@ -1,0 +1,108 @@
+﻿@page "{id:int?}"
+@model EcoBazzar.Pages.Backoffice.CategoryFormModel
+@{
+}
+<style>
+    form {
+        max-width: 600px;
+        margin: auto;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+        background: #f9f9f9;
+    }
+
+    label {
+        margin: .5em 0 .2em;
+        color: #333;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    input[type="radio"] {
+        display: block;
+        width: 100%;
+        padding: .4em;
+        border: 1px solid #ccc;
+        border-radius: .3em;
+        margin-bottom: .5em;
+    }
+
+    input[type="checkbox"] {
+        margin-right: .5em;
+    }
+
+    input[type="radio"] {
+        display: inline-block;
+        width: auto;
+    }
+
+    button {
+        padding: 0.7em;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: .3em;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    .form-group {
+        margin-bottom: 1em;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+        }
+</style>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="category.Name"></label>
+        <input asp-for="category.Name" name="Name" />
+        <span asp-validation-for="category.Name" data-valmsgfor="Name"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="category.Description"></label>
+        <input asp-for="category.Description" name="Description" />
+        <span asp-validation-for="category.Description" data-valmsgfor="Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="category.Image"></label>
+        <input asp-for="category.Image" name="Image" />
+        <br />
+        <span asp-validation-for="category.Image" data-valmsgfor="Image"></span>
+    </div>
+
+ 
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div asp-validation-summary="All" class="danger"></div>
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+}
