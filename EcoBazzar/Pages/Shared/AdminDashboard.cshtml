@@ -90,13 +90,14 @@
         .admin-footer {
             text-align: center;
             padding: 10px;
-            background-color: #fff; /* Dark blue or grey background */
-            z-index: 1000; /* Ensure footer is above other content */
-            position: fixed; /* Fixed position to stick on scroll */
-            bottom: 0; /* Align to bottom */
-            width: 100%; /* Full width */
-            color: #000; /* White text color */
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            background-color: #fff;
+            z-index: 1000;
+            width: 100%;
+            color: #000;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            height: 50px; /* Adjust height as needed */
         }
 
         .admin-header {
@@ -174,12 +175,12 @@
             }
 
         .admin-content {
-            margin-left: 250px; /* Offset content to match sidebar width */
-            padding-top: 60px; /* Adjusted top padding to clear navbar */
-            padding-left: 20px; /* Adjust padding as needed */
-            flex: 1 1 auto; /* Flexible height, fills remaining space */
-            overflow-y: auto; /* Scrollable content */
-            transition: margin-left 0.3s ease; /* Smooth transition for margin change */
+            margin-left: 250px;
+            padding-top: 60px;
+            padding-left: 20px;
+            overflow-y: auto;
+            transition: margin-left 0.3s ease;
+            padding-bottom: 50px; /* Add space for fixed footer */
         }
 
 
@@ -248,5 +249,7 @@
             });
         });
     </script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

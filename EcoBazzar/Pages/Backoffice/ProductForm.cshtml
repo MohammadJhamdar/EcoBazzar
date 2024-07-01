@@ -1,0 +1,155 @@
+﻿@page
+@model EcoBazzar.Pages.Backoffice.ProductFormModel
+@{
+   Layout = "AdminDashboard";
+}
+
+
+<style>
+    form {
+        max-width: 600px;
+        margin: auto;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+        background: #f9f9f9;
+    }
+
+    label {
+        margin: .5em 0 .2em;
+        color: #333;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    input[type="radio"] {
+        display: block;
+        width: 100%;
+        padding: .4em;
+        border: 1px solid #ccc;
+        border-radius: .3em;
+        margin-bottom: .5em;
+    }
+
+    input[type="checkbox"] {
+        margin-right: .5em;
+    }
+
+    input[type="radio"] {
+        display: inline-block;
+        width: auto;
+    }
+
+    button {
+        padding: 0.7em;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: .3em;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    .form-group {
+        margin-bottom: 1em;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+        }
+</style>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="product.Name"></label>
+        <input asp-for="product.Name" class="form-control" name="Name" />
+        <span asp-validation-for="product.Name" data-valmsg-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Description"></label>
+        <textarea asp-for="product.Description" class="form-control" name="Description"></textarea>
+        <span asp-validation-for="product.Description" data-valmsg-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Price"></label>
+        <input asp-for="product.Price" class="form-control" name="Price" />
+        <span asp-validation-for="product.Price" data-valmsg-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Image"></label>
+        <input asp-for="product.Image" type="file" class="form-control" name="Image" />
+        <span asp-validation-for="product.Image" data-valmsg-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Brand"></label>
+        <input asp-for="product.Brand" class="form-control" name="Brand" />
+        <span asp-validation-for="product.Brand" data-valmsg-for="Brand" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Rating"></label>
+        <input asp-for="product.Rating" class="form-control" name="Rating" />
+        <span asp-validation-for="product.Rating" data-valmsg-for="Rating" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Weight"></label>
+        <input asp-for="product.Weight" class="form-control" name="Weight" />
+        <span asp-validation-for="product.Weight" data-valmsg-for="Weight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Stock"></label>
+        <input asp-for="product.Stock" class="form-control" name="Stock" />
+        <span asp-validation-for="product.Stock" data-valmsg-for="Stock" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.Discount"></label>
+        <input asp-for="product.Discount" class="form-control" name="Discount" />
+        <span asp-validation-for="product.Discount" data-valmsg-for="Discount" class="text-danger"></span>
+    </div>
+
+   
+    <div class="form-group">
+        <label>With "No Selection" Option</label>
+        <select class="form-control dropdown" asp-for="product.SubCategoryId" asp-items="Model.SubCategories"
+                name="Nationalty">
+            <option value="">**Not selected**</option>
+        </select>
+        <span asp-validation-for="product.SubCategoryId" class="text-danger" data-valmsg-for="SubCategoryId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="product.SubCategoryId"></label>
+        <input asp-for="product.SubCategoryId" class="form-control" name="SubCategoryId" />
+        <span asp-validation-for="product.SubCategoryId" data-valmsg-for="SubCategoryId" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<div asp-validation-summary="All" class="danger"></div>
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+}

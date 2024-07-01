@@ -1,5 +1,8 @@
 using EcoBazzar.BindingModel.User;
 using EcoBazzar.DataBase;
+using EcoBazzar.Services.CategoryServices;
+using EcoBazzar.Services.ProductServices;
+using EcoBazzar.Services.SubCategoryServices;
 using EcoBazzar.Services.UserServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -40,6 +43,9 @@ builder.Services.AddAuthorization();
 
 //
 builder.Services.AddScoped<IUserServices, UserServices>();
+builder.Services.AddScoped<IProductServices, ProductServices>();
+builder.Services.AddScoped<ISubCategoryServices, SubCategoryServices>();
+builder.Services.AddScoped<ICategoryServices, CategoryServices>();
 
 //adding connection string
 var connString = builder.Configuration.GetConnectionString("DefaultConnection");
