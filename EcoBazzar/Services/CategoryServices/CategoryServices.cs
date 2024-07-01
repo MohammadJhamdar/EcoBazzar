@@ -17,13 +17,13 @@ namespace EcoBazzar.Services.CategoryServices
             _context = context;
         }
 
-        public async Task<string> CreateCategory(CategoryBindinModel model)
+        public async Task<int> CreateCategory(CategoryBindinModel model)
         {
             var category = new Category();  
             MapToDataModel(model, category);
             await _context.AddAsync(category);
             await _context.SaveChangesAsync();
-            return category.Name;
+            return category.Id;
         }
 
         public async Task<string> DeleteCategory(int id)
@@ -43,7 +43,7 @@ namespace EcoBazzar.Services.CategoryServices
             return await _context.categories.ToListAsync();
         }
 
-        public async Task<Category> GetCategoryById(int id)
+        public async Task<Category> GetCategoryById(int? id)
         {
             var category = await _context.categories.FindAsync(id);
             if (category != null)

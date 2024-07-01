@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,7 @@
         .admin-container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh; /* Use min-height to ensure footer sticks to the bottom */
         }
 
         /* Style for "Welcome Admin" text */
@@ -98,6 +99,8 @@
             color: #000; /* White text color */
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
         }
+
+
 
         .admin-header {
             background-color: #f8f9fa; /* Light grey background */
@@ -182,8 +185,6 @@
             transition: margin-left 0.3s ease; /* Smooth transition for margin change */
         }
 
-
-
     </style>
 </head>
 <body>
@@ -231,6 +232,7 @@
         <footer class="admin-footer">
             &copy; Copyright EcoBazzar
         </footer>
+
 
     </div>
 
